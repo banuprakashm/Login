@@ -1,8 +1,9 @@
 /// <reference types = "Cypress"/>
 describe('Locating elements',()=>{
   it('Verify the home page', () => {
-    cy.visit('http://127.0.0.1:5500/newyork/index.html')
+    cy.visit('http://distracted-bassi-cd1892.netlify.app/newyork')
     cy.wait(2000)
+    cy.get('.container')
     cy.get('#home').click()
     cy.get('img')
     // Continue Reading
@@ -108,7 +109,7 @@ describe('Locating elements',()=>{
   });
 
   it("Responsive in Home Page", () => {
-    cy.visit('http://127.0.0.1:5500/newyork/index.html')
+    cy.visit('http://distracted-bassi-cd1892.netlify.app/newyork')
     cy.get(".container").should("be.visible");
     cy.viewport(320, 480);
 
