@@ -1,14 +1,14 @@
 /// <reference types = "Cypress"/>
 describe('Locating elements',()=>{
   it('Verify the home page', () => {
-    cy.visit('https://distracted-bassi-cd1892.netlify.app/newyork/')
+    cy.visit('http://127.0.0.1:5500/newyork/index.html')
     cy.wait(2000)
     cy.get('#home').click()
     cy.get('img')
     // Continue Reading
     cy.get('.continueReading')
     // Thubmnail (Ex : Image)
-    cy.get('.thumbnail')
+    cy.get('.img-thumbnail')
     // Date Card (Ex : August 19)
     cy.get('.datecard')
     // Abstract Card (Ex : Abstract of the news)
@@ -22,6 +22,8 @@ describe('Locating elements',()=>{
     .first()
     .scrollIntoView()
     .screenshot(`First Card Screenshot-${Cypress.config().baseUrl}`);
+
+    cy.get('.card')
     cy.get('.continueReading').contains('Continue reading')
     // Spelling Checker
     cy.get('#home').contains('HOME')
@@ -38,533 +40,73 @@ describe('Locating elements',()=>{
     cy.get('#travel').contains('TRAVEL')
 
     // a tag checker
-    cy.get('.continueReading')
+    cy.get('a')
     .should('contain', 'Continue reading')
     .contains('Continue reading')
     .and('have.attr', 'href')            
     .and('not.include', '#')
 
-    // World Page
-
+    // Click request 
     cy.get('#world').click()
-    cy.get('img')
-    // Continue Reading
-    cy.get('.continueReading')
-    // Thubmnail (Ex : Image)
-    cy.get('.thumbnail')
-    // Date Card (Ex : August 19)
-    cy.get('.datecard')
-    // Abstract Card (Ex : Abstract of the news)
-    cy.get('.abstractcard')
-    // Section Card Ex: US
-    cy.get('.sectioncard')
-    // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-    cy.get('.titlecard')
-    // Verification of the card
     cy.get(".card")
     .first()
     .scrollIntoView()
-
-    cy.get('.continueReading').contains('Continue reading')
-    // Spelling Checker
-    cy.get('#home').contains('HOME')
-    cy.get('#world').contains('WORLD')
-    cy.get('#politics').contains('POLITICS')
-    cy.get('#magazine').contains('MAGAZINE')
-    cy.get('#technology').contains('TECHNOLOGY')
-    cy.get('#science').contains('SCIENCE')
-    cy.get('#health').contains('HEALTH')
-    cy.get('#sports').contains('SPORTS')
-    cy.get('#arts').contains('ARTS')
-    cy.get('#fashion').contains('FASHION')
-    cy.get('#food').contains('FOOD')
-    cy.get('#travel').contains('TRAVEL')
-
-    // a tag checker
-    cy.get('.continueReading')
-    .should('contain', 'Continue reading')
-    .contains('Continue reading')
-    .and('have.attr', 'href')            
-    .and('not.include', '#')
-
-    // politics Page
 
     cy.get('#politics').click()
-    cy.get('img')
-    // Continue Reading
-    cy.get('.continueReading')
-    // Thubmnail (Ex : Image)
-    cy.get('.thumbnail')
-    // Date Card (Ex : August 19)
-    cy.get('.datecard')
-    // Abstract Card (Ex : Abstract of the news)
-    cy.get('.abstractcard')
-    // Section Card Ex: US
-    cy.get('.sectioncard')
-    // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-    cy.get('.titlecard')
-    // Verification of the card
     cy.get(".card")
     .first()
     .scrollIntoView()
 
-    cy.get('.continueReading').contains('Continue reading')
-    // Spelling Checker
-    cy.get('#home').contains('HOME')
-    cy.get('#world').contains('WORLD')
-    cy.get('#politics').contains('POLITICS')
-    cy.get('#magazine').contains('MAGAZINE')
-    cy.get('#technology').contains('TECHNOLOGY')
-    cy.get('#science').contains('SCIENCE')
-    cy.get('#health').contains('HEALTH')
-    cy.get('#sports').contains('SPORTS')
-    cy.get('#arts').contains('ARTS')
-    cy.get('#fashion').contains('FASHION')
-    cy.get('#food').contains('FOOD')
-    cy.get('#travel').contains('TRAVEL')
+    cy.get('#magazine').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-    // a tag checker
-    cy.get('.continueReading')
-    .should('contain', 'Continue reading')
-    .contains('Continue readin')
-    .and('have.attr', 'href')            
-    .and('not.include', '#')
+    cy.get('#technology').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-        // magazine Page
+    cy.get('#science').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-        cy.get('#magazine').click()
-        cy.get('img')
-        // Continue Reading
-        cy.get('.continueReading')
-        // Thubmnail (Ex : Image)
-        cy.get('.thumbnail')
-        // Date Card (Ex : August 19)
-        cy.get('.datecard')
-        // Abstract Card (Ex : Abstract of the news)
-        cy.get('.abstractcard')
-        // Section Card Ex: US
-        cy.get('.sectioncard')
-        // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-        cy.get('.titlecard')
-        // Verification of the card
-        cy.get(".card")
-        .first()
-        .scrollIntoView()
-    
-        cy.get('.continueReading').contains('Continue reading')
-        // Spelling Checker
-        cy.get('#home').contains('HOME')
-        cy.get('#world').contains('WORLD')
-        cy.get('#politics').contains('POLITICS')
-        cy.get('#magazine').contains('MAGAZINE')
-        cy.get('#technology').contains('TECHNOLOGY')
-        cy.get('#science').contains('SCIENCE')
-        cy.get('#health').contains('HEALTH')
-        cy.get('#sports').contains('SPORTS')
-        cy.get('#arts').contains('ARTS')
-        cy.get('#fashion').contains('FASHION')
-        cy.get('#food').contains('FOOD')
-        cy.get('#travel').contains('TRAVEL')
-    
-        // a tag checker
-        cy.get('.continueReading')
-        .should('contain', 'Continue reading')
-        .contains('Continue reading')
-        .and('have.attr', 'href')            
-        .and('not.include', '#')
+    cy.get('#health').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-                // technology Page
+    cy.get('#sports').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-                cy.get('#technology').click()
-                cy.get('img')
-                // Continue Reading
-                cy.get('.continueReading')
-                // Thubmnail (Ex : Image)
-                cy.get('.thumbnail')
-                // Date Card (Ex : August 19)
-                cy.get('.datecard')
-                // Abstract Card (Ex : Abstract of the news)
-                cy.get('.abstractcard')
-                // Section Card Ex: US
-                cy.get('.sectioncard')
-                // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                cy.get('.titlecard')
-                // Verification of the card
-                cy.get(".card")
-                .first()
-                .scrollIntoView()
-            
-                cy.get('.continueReading').contains('Continue reading')
-                // Spelling Checker
-                cy.get('#home').contains('HOME')
-                cy.get('#world').contains('WORLD')
-                cy.get('#politics').contains('POLITICS')
-                cy.get('#magazine').contains('MAGAZINE')
-                cy.get('#technology').contains('TECHNOLOGY')
-                cy.get('#science').contains('SCIENCE')
-                cy.get('#health').contains('HEALTH')
-                cy.get('#sports').contains('SPORTS')
-                cy.get('#arts').contains('ARTS')
-                cy.get('#fashion').contains('FASHION')
-                cy.get('#food').contains('FOOD')
-                cy.get('#travel').contains('TRAVEL')
-            
-                // a tag checker
-                cy.get('.continueReading')
-                .should('contain', 'Continue reading')
-                .contains('Continue reading')
-                .and('have.attr', 'href')            
-                .and('not.include', '#')
+    cy.get('#arts').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-                // science Page
+    cy.get('#fashion').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-                cy.get('#science').click()
-                cy.get('img')
-                // Continue Reading
-                cy.get('.continueReading')
-                // Thubmnail (Ex : Image)
-                cy.get('.thumbnail')
-                // Date Card (Ex : August 19)
-                cy.get('.datecard')
-                // Abstract Card (Ex : Abstract of the news)
-                cy.get('.abstractcard')
-                // Section Card Ex: US
-                cy.get('.sectioncard')
-                // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                cy.get('.titlecard')
-                // Verification of the card
-                cy.get(".card")
-                .first()
-                .scrollIntoView()
-            
-                cy.get('.continueReading').contains('Continue reading')
-                // Spelling Checker
-                cy.get('#home').contains('HOME')
-                cy.get('#world').contains('WORLD')
-                cy.get('#politics').contains('POLITICS')
-                cy.get('#magazine').contains('MAGAZINE')
-                cy.get('#technology').contains('TECHNOLOGY')
-                cy.get('#science').contains('SCIENCE')
-                cy.get('#health').contains('HEALTH')
-                cy.get('#sports').contains('SPORTS')
-                cy.get('#arts').contains('ARTS')
-                cy.get('#fashion').contains('FASHION')
-                cy.get('#food').contains('FOOD')
-                cy.get('#travel').contains('TRAVEL')
-            
-                // a tag checker
-                cy.get('.continueReading')
-                .should('contain', 'Continue reading')
-                .contains('Continue reading')
-                .and('have.attr', 'href')            
-                .and('not.include', '#')
+    cy.get('#food').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
 
-                // health Page
-
-                cy.get('#health').click()
-                cy.get('img')
-                // Continue Reading
-                cy.get('.continueReading')
-                // Thubmnail (Ex : Image)
-                cy.get('.thumbnail')
-                // Date Card (Ex : August 19)
-                cy.get('.datecard')
-                // Abstract Card (Ex : Abstract of the news)
-                cy.get('.abstractcard')
-                // Section Card Ex: US
-                cy.get('.sectioncard')
-                // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                cy.get('.titlecard')
-                // Verification of the card
-                cy.get(".card")
-                .first()
-                .scrollIntoView()
-            
-                cy.get('.continueReading').contains('Continue reading')
-                // Spelling Checker
-                cy.get('#home').contains('HOME')
-                cy.get('#world').contains('WORLD')
-                cy.get('#politics').contains('POLITICS')
-                cy.get('#magazine').contains('MAGAZINE')
-                cy.get('#technology').contains('TECHNOLOGY')
-                cy.get('#science').contains('SCIENCE')
-                cy.get('#health').contains('HEALTH')
-                cy.get('#sports').contains('SPORTS')
-                cy.get('#arts').contains('ARTS')
-                cy.get('#fashion').contains('FASHION')
-                cy.get('#food').contains('FOOD')
-                cy.get('#travel').contains('TRAVEL')
-            
-                // a tag checker
-                cy.get('.continueReading')
-                .should('contain', 'Continue reading')
-                .contains('Continue reading')
-                .and('have.attr', 'href')            
-                .and('not.include', '#')
-    
-                                // sports Page
-
-                                cy.get('#sports').click()
-                                cy.get('img')
-                                // Continue Reading
-                                cy.get('.continueReading')
-                                // Thubmnail (Ex : Image)
-                                cy.get('.thumbnail')
-                                // Date Card (Ex : August 19)
-                                cy.get('.datecard')
-                                // Abstract Card (Ex : Abstract of the news)
-                                cy.get('.abstractcard')
-                                // Section Card Ex: US
-                                cy.get('.sectioncard')
-                                // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                                cy.get('.titlecard')
-                                // Verification of the card
-                                cy.get(".card")
-                                .first()
-                                .scrollIntoView()
-                            
-                                cy.get('.continueReading').contains('Continue reading')
-                                // Spelling Checker
-                                cy.get('#home').contains('HOME')
-                                cy.get('#world').contains('WORLD')
-                                cy.get('#politics').contains('POLITICS')
-                                cy.get('#magazine').contains('MAGAZINE')
-                                cy.get('#technology').contains('TECHNOLOGY')
-                                cy.get('#science').contains('SCIENCE')
-                                cy.get('#health').contains('HEALTH')
-                                cy.get('#sports').contains('SPORTS')
-                                cy.get('#arts').contains('ARTS')
-                                cy.get('#fashion').contains('FASHION')
-                                cy.get('#food').contains('FOOD')
-                                cy.get('#travel').contains('TRAVEL')
-                            
-                                // a tag checker
-                                cy.get('.continueReading')
-                                .should('contain', 'Continue reading')
-                                .contains('Continue reading')
-                                .and('have.attr', 'href')            
-                                .and('not.include', '#')
-
-                                                                // sports Page
-
-                                cy.get('#sports').click()
-                                cy.get('img')
-                                // Continue Reading
-                                cy.get('.continueReading')
-                                // Thubmnail (Ex : Image)
-                                cy.get('.thumbnail')
-                                // Date Card (Ex : August 19)
-                                cy.get('.datecard')
-                                // Abstract Card (Ex : Abstract of the news)
-                                cy.get('.abstractcard')
-                                // Section Card Ex: US
-                                cy.get('.sectioncard')
-                                // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                                cy.get('.titlecard')
-                                // Verification of the card
-                                cy.get(".card")
-                                .first()
-                                .scrollIntoView()
-                            
-                                cy.get('.continueReading').contains('Continue reading')
-                                // Spelling Checker
-                                cy.get('#home').contains('HOME')
-                                cy.get('#world').contains('WORLD')
-                                cy.get('#politics').contains('POLITICS')
-                                cy.get('#magazine').contains('MAGAZINE')
-                                cy.get('#technology').contains('TECHNOLOGY')
-                                cy.get('#science').contains('SCIENCE')
-                                cy.get('#health').contains('HEALTH')
-                                cy.get('#sports').contains('SPORTS')
-                                cy.get('#arts').contains('ARTS')
-                                cy.get('#fashion').contains('FASHION')
-                                cy.get('#food').contains('FOOD')
-                                cy.get('#travel').contains('TRAVEL')
-                            
-                                // a tag checker
-                                cy.get('.continueReading')
-                                .should('contain', 'Continue reading')
-                                .contains('Continue reading')
-                                .and('have.attr', 'href')            
-                                .and('not.include', '#')
-
-                                  // arts Page
-
-                                  cy.get('#arts').click()
-                                  cy.get('img')
-                                  // Continue Reading
-                                  cy.get('.continueReading')
-                                  // Thubmnail (Ex : Image)
-                                  cy.get('.thumbnail')
-                                  // Date Card (Ex : August 19)
-                                  cy.get('.datecard')
-                                  // Abstract Card (Ex : Abstract of the news)
-                                  cy.get('.abstractcard')
-                                  // Section Card Ex: US
-                                  cy.get('.sectioncard')
-                                  // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                                  cy.get('.titlecard')
-                                  // Verification of the card
-                                  cy.get(".card")
-                                  .first()
-                                  .scrollIntoView()
-                              
-                                  cy.get('.continueReading').contains('Continue reading')
-                                  // Spelling Checker
-                                  cy.get('#home').contains('HOME')
-                                  cy.get('#world').contains('WORLD')
-                                  cy.get('#politics').contains('POLITICS')
-                                  cy.get('#magazine').contains('MAGAZINE')
-                                  cy.get('#technology').contains('TECHNOLOGY')
-                                  cy.get('#science').contains('SCIENCE')
-                                  cy.get('#health').contains('HEALTH')
-                                  cy.get('#sports').contains('SPORTS')
-                                  cy.get('#arts').contains('ARTS')
-                                  cy.get('#fashion').contains('FASHION')
-                                  cy.get('#food').contains('FOOD')
-                                  cy.get('#travel').contains('TRAVEL')
-                              
-                                  // a tag checker
-                                  cy.get('.continueReading')
-                                  .should('contain', 'Continue reading')
-                                  .contains('Continue reading')
-                                  .and('have.attr', 'href')            
-                                  .and('not.include', '#')
-
-                                    // fashion Page
-
-                                    cy.get('#fashion').click()
-                                    cy.get('img')
-                                    // Continue Reading
-                                    cy.get('.continueReading')
-                                    // Thubmnail (Ex : Image)
-                                    cy.get('.thumbnail')
-                                    // Date Card (Ex : August 19)
-                                    cy.get('.datecard')
-                                    // Abstract Card (Ex : Abstract of the news)
-                                    cy.get('.abstractcard')
-                                    // Section Card Ex: US
-                                    cy.get('.sectioncard')
-                                    // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-                                    cy.get('.titlecard')
-                                    // Verification of the card
-                                    cy.get(".card")
-                                    .first()
-                                    .scrollIntoView()
-                                
-                                    cy.get('.continueReading').contains('Continue reading')
-                                    // Spelling Checker
-                                    cy.get('#home').contains('HOME')
-                                    cy.get('#world').contains('WORLD')
-                                    cy.get('#politics').contains('POLITICS')
-                                    cy.get('#magazine').contains('MAGAZINE')
-                                    cy.get('#technology').contains('TECHNOLOGY')
-                                    cy.get('#science').contains('SCIENCE')
-                                    cy.get('#health').contains('HEALTH')
-                                    cy.get('#sports').contains('SPORTS')
-                                    cy.get('#arts').contains('ARTS')
-                                    cy.get('#fashion').contains('FASHION')
-                                    cy.get('#food').contains('FOOD')
-                                    cy.get('#travel').contains('TRAVEL')
-                                
-                                    // a tag checker
-                                    cy.get('.continueReading')
-                                    .should('contain', 'Continue reading')
-                                    .contains('Continue reading')
-                                    .and('have.attr', 'href')            
-                                    .and('not.include', '#')
-
-      // food Page
-
-      cy.get('#food').click()
-      cy.get('img')
-      // Continue Reading
-      cy.get('.continueReading')
-      // Thubmnail (Ex : Image)
-      cy.get('.thumbnail')
-      // Date Card (Ex : August 19)
-      cy.get('.datecard')
-      // Abstract Card (Ex : Abstract of the news)
-      cy.get('.abstractcard')
-      // Section Card Ex: US
-      cy.get('.sectioncard')
-      // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-      cy.get('.titlecard')
-      // Verification of the card
-      cy.get(".card")
-      .first()
-      .scrollIntoView()
+    cy.get('#travel').click()
+    cy.get(".card")
+    .first()
+    .scrollIntoView()
   
-      cy.get('.continueReading').contains('Continue reading')
-      // Spelling Checker
-      cy.get('#home').contains('HOME')
-      cy.get('#world').contains('WORLD')
-      cy.get('#politics').contains('POLITICS')
-      cy.get('#magazine').contains('MAGAZINE')
-      cy.get('#technology').contains('TECHNOLOGY')
-      cy.get('#science').contains('SCIENCE')
-      cy.get('#health').contains('HEALTH')
-      cy.get('#sports').contains('SPORTS')
-      cy.get('#arts').contains('ARTS')
-      cy.get('#fashion').contains('FASHION')
-      cy.get('#food').contains('FOOD')
-      cy.get('#travel').contains('TRAVEL')
-  
-      // a tag checker
-      cy.get('.continueReading')
-      .should('contain', 'Continue reading')
-      .contains('Continue reading')
-      .and('have.attr', 'href')            
-      .and('not.include', '#')
-
-  // travel Page
-
-  cy.get('#travel').click()
-  cy.get('img')
-  // Continue Reading
-  cy.get('.continueReading')
-  // Thubmnail (Ex : Image)
-  cy.get('.thumbnail')
-  // Date Card (Ex : August 19)
-  cy.get('.datecard')
-  // Abstract Card (Ex : Abstract of the news)
-  cy.get('.abstractcard')
-  // Section Card Ex: US
-  cy.get('.sectioncard')
-  // Title Card Ex : Democrats Nominate Harris for Vice President, as Obama Lashes
-  cy.get('.titlecard')
-  // Verification of the card
-  cy.get(".card")
-  .first()
-  .scrollIntoView()
-
-  cy.get('.continueReading').contains('Continue reading')
-  // Spelling Checker
-  cy.get('#home').contains('HOME')
-  cy.get('#world').contains('WORLD')
-  cy.get('#politics').contains('POLITICS')
-  cy.get('#magazine').contains('MAGAZINE')
-  cy.get('#technology').contains('TECHNOLOGY')
-  cy.get('#science').contains('SCIENCE')
-  cy.get('#health').contains('HEALTH')
-  cy.get('#sports').contains('SPORTS')
-  cy.get('#arts').contains('ARTS')
-  cy.get('#fashion').contains('FASHION')
-  cy.get('#food').contains('FOOD')
-  cy.get('#travel').contains('TRAVEL')
-
-  // a tag checker
-  cy.get('.continueReading')
-  .should('contain', 'Continue reading')
-  .contains('Continue reading')
-  .and('have.attr', 'href')            
-  .and('not.include', '#')
-
 
   });
 
   it("Responsive in Home Page", () => {
-    cy.visit('https://distracted-bassi-cd1892.netlify.app/newyork/')
+    cy.visit('http://127.0.0.1:5500/newyork/index.html')
     cy.get(".container").should("be.visible");
     cy.viewport(320, 480);
 
